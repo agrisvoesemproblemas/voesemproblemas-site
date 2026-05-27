@@ -1,78 +1,74 @@
 import Link from 'next/link'
-import { BrandLogo } from '@/components/brand/Logo'
+import { MessageCircle } from 'lucide-react'
+import { whatsappLink } from '@/lib/wa'
+
+const WA_MSG = 'Olá Dra. Agrislaine, vi o site da Voe sem Problemas e gostaria de uma análise do meu caso.'
+
+const cases = [
+  { label: 'Voo atrasado', href: '#casos' },
+  { label: 'Voo cancelado', href: '#casos' },
+  { label: 'Bagagem extraviada', href: '#casos' },
+  { label: 'Overbooking', href: '#casos' },
+]
 
 export function Footer() {
   return (
-    <footer className="bg-[#0F1E33] text-[#FFFFFF]">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Col 1: Logo + tagline */}
-          <div className="space-y-4">
-            <BrandLogo variant="dark" size="md" />
-            <p className="text-sm text-[#B5D4F4] leading-relaxed">
-              Advocacia especializada em direitos do passageiro aéreo. 100% online. Todo o Brasil.
-            </p>
-            <div className="text-xs text-[#B5D4F4] space-y-1">
-              <p>OAB/SC 53.583</p>
-              <p>OAB/SP 505.951</p>
-            </div>
-          </div>
+    <footer
+      className="px-4 sm:px-10 py-7"
+      style={{ backgroundColor: '#0F1E33' }}
+    >
+      <div className="mx-auto max-w-6xl grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
 
-          {/* Col 2: Serviços */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-medium text-white">Serviços</h3>
-            <ul className="space-y-2 text-sm text-[#B5D4F4]">
-              <li><Link href="#casos" className="hover:text-white transition-colors">Voo atrasado (DLY)</Link></li>
-              <li><Link href="#casos" className="hover:text-white transition-colors">Voo cancelado (CNL)</Link></li>
-              <li><Link href="#casos" className="hover:text-white transition-colors">Extravio de bagagem (BAG)</Link></li>
-              <li><Link href="#casos" className="hover:text-white transition-colors">Overbooking (OVB)</Link></li>
-            </ul>
+        {/* Col 1: identity */}
+        <div>
+          <div className="flex items-baseline gap-1 mb-2">
+            <span className="font-medium text-[#1E88E5]" style={{ fontSize: 16 }}>Voe</span>
+            <span className="text-white" style={{ fontSize: 11 }}>sem problemas</span>
           </div>
-
-          {/* Col 3: Recursos */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-medium text-white">Recursos</h3>
-            <ul className="space-y-2 text-sm text-[#B5D4F4]">
-              <li><Link href="#como-funciona" className="hover:text-white transition-colors">Como funciona</Link></li>
-              <li><Link href="#faq" className="hover:text-white transition-colors">Dúvidas frequentes</Link></li>
-              <li><Link href="#calculadora" className="hover:text-white transition-colors">Calcular indenização</Link></li>
-              <li><Link href="#sobre" className="hover:text-white transition-colors">Sobre a Dra. Agrislaine</Link></li>
-            </ul>
-          </div>
-
-          {/* Col 4: Contato */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-medium text-white">Contato</h3>
-            <ul className="space-y-2 text-sm text-[#B5D4F4]">
-              <li>
-                <a
-                  href="https://wa.me/5548999687068"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  (48) 99968-7068 — WhatsApp
-                </a>
-              </li>
-              <li>
-                <a href="mailto:agriss.cc@gmail.com" className="hover:text-white transition-colors">
-                  agriss.cc@gmail.com
-                </a>
-              </li>
-              <li className="text-[#B5D4F4]">Paulínia/SP · atendimento Brasil</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="mt-12 border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#B5D4F4]">
-          <p>© 2026 Voe sem Problemas. Dra. Agrislaine Oliveira. Todos os direitos reservados.</p>
-          <div className="flex gap-4">
+          <p className="font-mono text-[11px] text-[#B5D4F4]">
+            OAB/SC 53.583 · OAB/SP 505.951 · Paulínia/SP
+          </p>
+          <p className="text-[11px] text-[#B5D4F4] mt-1">
+            © 2026 Voe sem Problemas ·{' '}
             <Link href="#lgpd" className="hover:text-white transition-colors">LGPD</Link>
+            {' '}·{' '}
             <Link href="#termos" className="hover:text-white transition-colors">Termos</Link>
-            <span>Feito com Next.js + Vercel</span>
+          </p>
+        </div>
+
+        {/* Col 2: cases */}
+        <div>
+          <p className="text-[11px] text-[#B5D4F4] tracking-[0.08em] mb-2 uppercase">Casos</p>
+          <div className="flex flex-col gap-1">
+            {cases.map((c) => (
+              <Link
+                key={c.label}
+                href={c.href}
+                className="text-[13px] text-white hover:text-[#B5D4F4] transition-colors"
+              >
+                {c.label}
+              </Link>
+            ))}
           </div>
         </div>
+
+        {/* Col 3: contact */}
+        <div>
+          <p className="text-[11px] text-[#B5D4F4] tracking-[0.08em] mb-2 uppercase">
+            Fale com a Dra.
+          </p>
+          <a
+            href={whatsappLink(WA_MSG)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-[10px] bg-[#25D366] px-3.5 py-2.5 text-[13px] font-medium text-white hover:bg-[#1FB955] transition-colors"
+          >
+            <MessageCircle size={15} />
+            WhatsApp
+          </a>
+          <p className="text-[12px] text-[#B5D4F4] mt-2">agriss.cc@gmail.com</p>
+        </div>
+
       </div>
     </footer>
   )

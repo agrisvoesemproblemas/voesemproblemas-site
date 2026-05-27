@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { MessageCircle, Zap, Calculator, HelpCircle } from 'lucide-react'
+import { MessageCircle, Zap, ClipboardCheck, HelpCircle } from 'lucide-react'
 import { whatsappLink } from '@/lib/wa'
 
 const WA_MSG = 'Olá Dra. Agrislaine, preciso de ajuda com um problema no voo.'
@@ -22,9 +22,9 @@ const tabs = [
     color: '#FBBF24',
   },
   {
-    label: 'Calcular',
-    href: '#calculadora',
-    icon: Calculator,
+    label: 'Embarcar',
+    href: '#casos',
+    icon: ClipboardCheck,
     external: false,
     color: '#1E88E5',
   },

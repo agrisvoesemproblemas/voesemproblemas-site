@@ -286,11 +286,12 @@ voesemproblemas-site/
 | Resend integration | Endpoint API com Zod validation + Turnstile |
 | Supabase setup (opcional) | Salvar submissões pra dashboard interno |
 
-### Sprint 3 — Calculadora + páginas institucionais
+### Sprint 3 — Páginas institucionais
+
+> **Nota:** Calculadora de indenização removida do escopo via ADR-006 (2026-05-27). Estimativa individualizada via WhatsApp é mais honesta e eficaz.
 
 | Item | Detalhe |
 |---|---|
-| `/calcular` | Calculadora de indenização com cálculo baseado em jurisprudência média (não "até R$ 15k" inflado). Gera estimativa realista + WhatsApp pré-preenchido com dados |
 | `/servicos/[slug]` | 5 páginas (atraso, cancelamento, extravio, overbooking, reembolso) com copy aprofundado |
 | `/sobre` | Página da Dra com bio completa + trajetória Criciúma→Paulínia + OAB dupla + foto profissional |
 | `/contato` | Form + WhatsApp + endereço |
@@ -335,13 +336,13 @@ voesemproblemas-site/
 
 ### Home (`/`) — Sprint 1
 
-1. Header sticky com logo, OAB chip, hamburger mobile (5 itens máx)
-2. Hero com Decision tree de 3 caminhos
-3. 4 serviços (DLY/CNL/BAG/OVB) em grid
-4. "Como funciona" timeline 5 passos
-5. Sobre Dra. (resumido, link pra /sobre completo)
-6. Resultados agregados (X casos, R$ Y, Z% êxito)
-7. Depoimentos destaque
+1. Header sticky com logo, hamburger mobile (4 itens: Casos, Como funciona, Sobre, Dúvidas)
+2. Hero editorial com painel LED de departures IATA + boarding pass de êxito recente
+3. Decision Tree (3 caminhos: Live, Embarcar Caso, FAQ)
+4. 4 serviços em PT-BR (sem códigos IATA nas cards)
+5. "Como funciona" 5 passos
+6. Sobre Dra. com Resultados integrados em bloco compacto
+7. FAQ em 2 colunas (6 perguntas)
 8. FAQ resumido (8 perguntas + link /faq)
 9. CTA final
 10. Footer institucional (OAB, contatos, social, LGPD)

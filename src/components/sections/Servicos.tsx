@@ -1,71 +1,52 @@
-import { Clock, XCircle, Luggage, UserX, ArrowRight } from 'lucide-react'
+import { Clock, Luggage, Users } from 'lucide-react'
+import { PlaneIcon } from 'lucide-react'
 
 const services = [
   {
-    code: 'DLY',
     icon: Clock,
     title: 'Voo atrasado',
-    desc: '≥ 4h, ou conexão perdida por atraso.',
-    href: '#casos',
+    desc: 'A partir de 4 horas, conexão perdida ou desembarque tardio.',
   },
   {
-    code: 'CNL',
-    icon: XCircle,
+    icon: PlaneIcon,
     title: 'Voo cancelado',
-    desc: 'Sem reacomodação digna ou aviso prévio.',
-    href: '#casos',
+    desc: 'Sem reacomodação digna ou aviso antecedente suficiente.',
   },
   {
-    code: 'BAG',
     icon: Luggage,
-    title: 'Extravio de bagagem',
-    desc: 'Temporário (mais de 24h) ou definitivo.',
-    href: '#casos',
+    title: 'Bagagem extraviada',
+    desc: 'Atraso na entrega, perda definitiva ou avaria.',
   },
   {
-    code: 'OVB',
-    icon: UserX,
+    icon: Users,
     title: 'Overbooking',
-    desc: 'Preterição de embarque sem consentimento.',
-    href: '#casos',
+    desc: 'Preterição de embarque por venda em excesso.',
   },
 ]
 
 export function Servicos() {
   return (
-    <section id="casos" className="py-20 px-4 sm:px-6 bg-white">
+    <section id="casos" className="px-4 sm:px-10 py-10 bg-white border-t border-[#E5E7EB]/50">
       <div className="mx-auto max-w-6xl">
-        <p className="text-xs font-medium text-[#525252] tracking-widest uppercase mb-4">
-          — Nº 03 · O que resolvemos
+        <h2 className="text-[26px] font-medium text-[#0A0F1E] tracking-[-0.025em] mb-1.5">
+          Casos que assumimos
+        </h2>
+        <p className="text-[14px] text-[#525252] mb-6">
+          Não atendemos só esses, mas representam mais de 90% dos casos resolvidos.
         </p>
 
-        <h2 className="text-3xl sm:text-4xl font-medium text-[#0A0F1E] leading-tight tracking-[-0.02em] max-w-xl mb-12">
-          Tipos de problema que tratamos
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           {services.map((s) => {
             const Icon = s.icon
             return (
-              <a
-                key={s.code}
-                href={s.href}
-                className="group flex flex-col gap-4 rounded-[14px] border border-[#E5E7EB] bg-[#FAFAFA] p-6 hover:border-[#1E88E5]/40 hover:shadow-md hover:-translate-y-0.5 transition-all"
+              <div
+                key={s.title}
+                className="rounded-[12px] border border-[#E5E7EB]/80 bg-white p-5 hover:border-[#1E88E5] transition-colors duration-200 cursor-default"
               >
-                <div className="flex items-start justify-between">
-                  <Icon size={22} className="text-[#1E88E5]" />
-                  <span className="font-mono text-[10px] text-[#1E88E5] tracking-widest">
-                    {s.code}
-                  </span>
-                </div>
-                <div>
-                  <p className="font-medium text-[#0A0F1E] mb-1">{s.title}</p>
-                  <p className="text-sm text-[#525252] leading-relaxed">{s.desc}</p>
-                </div>
-                <div className="flex items-center gap-1 text-xs text-[#1E88E5] group-hover:gap-2 transition-all">
-                  Saiba mais <ArrowRight size={12} />
-                </div>
-              </a>
+                <Icon size={28} className="text-[#1E88E5]" />
+                <p className="mt-3 text-[15px] font-medium text-[#0A0F1E]">{s.title}</p>
+                <p className="mt-1 text-[12px] text-[#525252] leading-[1.5]">{s.desc}</p>
+              </div>
             )
           })}
         </div>

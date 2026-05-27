@@ -5,9 +5,7 @@ import { DecisionTree } from '@/components/sections/DecisionTree'
 import { Servicos } from '@/components/sections/Servicos'
 import { ComoFunciona } from '@/components/sections/ComoFunciona'
 import { Sobre } from '@/components/sections/Sobre'
-import { Resultados } from '@/components/sections/Resultados'
 import { FAQ } from '@/components/sections/FAQ'
-import { CtaFinal } from '@/components/sections/CtaFinal'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Voe sem Problemas — Advocacia especializada em direitos do passageiro aéreo',
@@ -23,9 +21,7 @@ export default function HomePage() {
       <Servicos />
       <ComoFunciona />
       <Sobre />
-      <Resultados />
       <FAQ />
-      <CtaFinal />
     </>
   )
 }

@@ -1,84 +1,82 @@
+'use client'
+
+import { useState } from 'react'
 import { whatsappLink } from '@/lib/wa'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
 
 const faqs = [
   {
     q: 'Até quando posso entrar com uma ação?',
-    a: 'Para voos domésticos, o prazo é de 5 anos a partir do incidente. Para voos internacionais, 2 anos. Não espere chegar no limite — quanto mais cedo, mais fácil reunir as provas.',
+    a: 'Para voos internacionais o prazo é de 2 anos. Para voos domésticos, 5 anos. Conta a partir da data do voo.',
   },
   {
-    q: 'Quanto posso receber em uma indenização?',
-    a: 'Depende do tipo de problema, da companhia, do tempo de atraso e dos danos comprovados. Voos com atraso de mais de 4h geralmente resultam em R$ 3.000 a R$ 10.000. Extravio de bagagem pode variar de R$ 2.000 a R$ 15.000. Nossa calculadora dá uma estimativa realista.',
-  },
-  {
-    q: 'Como funciona o pagamento de honorários?',
+    q: 'Como são calculados os honorários?',
     a: '30% sobre o valor obtido, somente se ganharmos. Zero custo inicial. Se a ação for indeferida, você não paga nada.',
   },
   {
-    q: 'Quanto tempo demora para receber?',
-    a: 'Em média 6 a 18 meses, dependendo da comarca e do volume de processos no TJ. Em juizados especiais o prazo costuma ser menor. Acompanhamos você do início ao fim.',
-  },
-  {
-    q: 'Como acompanho meu processo?',
-    a: 'Enviamos o número do processo e o link do Tribunal de Justiça competente assim que a ação for protocolada. Você pode consultar a qualquer momento.',
-  },
-  {
-    q: 'E se meu pedido for negado?',
-    a: 'Você não paga honorários. Pode haver condenação em honorários de sucumbência (da parte contrária) dependendo do caso — explicamos antes de protocolar.',
+    q: 'Quanto tempo até receber?',
+    a: 'Tipicamente entre 6 e 18 meses, dependendo da comarca e da agilidade do trâmite. Em alguns casos, com acordo extrajudicial, pode ser mais rápido.',
   },
   {
     q: 'Vocês atendem em qual região?',
-    a: 'Brasil inteiro, 100% online. Não importa onde você mora ou onde o problema aconteceu.',
+    a: 'Brasil inteiro, 100% online. A Dra. Agrislaine tem registro na OAB/SC e OAB/SP, atuando em qualquer jurisdição do país via certificação digital.',
   },
   {
     q: 'Quais documentos vou precisar?',
-    a: 'Cartão de embarque, passagem aérea, comprovante de atraso ou cancelamento emitido pela companhia, recibos de gastos extras (hotel, alimentação, táxi) e comprovante de danos, se houver.',
+    a: 'Cartão de embarque, comprovante da passagem, comprovantes da companhia sobre o atraso/cancelamento, recibos de gastos extras. Te enviamos a lista completa após análise do caso.',
+  },
+  {
+    q: 'E se meu pedido for negado?',
+    a: 'Você não paga nossos honorários. Pode haver, em casos específicos, condenação a honorários de sucumbência, mas isso é raro e te avisamos antes.',
   },
 ]
 
-const WA_MSG = 'Olá Dra. Agrislaine, não encontrei minha dúvida no FAQ. Preciso de ajuda com um problema no voo.'
+const WA_MSG = 'Olá Dra. Agrislaine, não encontrei minha dúvida no FAQ. Gostaria de uma análise do meu caso.'
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div
+      className="rounded-[10px] bg-white px-4 py-3.5 cursor-pointer transition-colors duration-200"
+      style={{ border: open ? '0.5px solid #1E88E5' : '0.5px solid #E5E7EB' }}
+      onClick={() => setOpen((v) => !v)}
+    >
+      <div className="flex justify-between items-center gap-3">
+        <p className="text-[13px] font-medium text-[#0A0F1E] leading-snug">{q}</p>
+        <span className="text-[16px] text-[#525252] flex-shrink-0 select-none">
+          {open ? '×' : '+'}
+        </span>
+      </div>
+      {open && (
+        <p className="mt-2 text-[13px] text-[#525252] leading-relaxed">{a}</p>
+      )}
+    </div>
+  )
+}
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-20 px-4 sm:px-6 bg-[#FAFAFA]">
-      <div className="mx-auto max-w-3xl">
-        <p className="text-xs font-medium text-[#525252] tracking-widest uppercase mb-4">
-          — Nº 06 · Dúvidas frequentes
+    <section id="faq" className="px-4 sm:px-10 py-10 bg-[#FAFAFA] border-t border-[#E5E7EB]/50">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="text-[26px] font-medium text-[#0A0F1E] tracking-[-0.025em] mb-1.5">
+          Dúvidas frequentes
+        </h2>
+        <p className="text-[14px] text-[#525252] mb-6">
+          As perguntas mais comuns sobre nosso atendimento.
         </p>
 
-        <h2 className="text-3xl sm:text-4xl font-medium text-[#0A0F1E] leading-tight tracking-[-0.02em] mb-12">
-          Tudo que você precisa saber antes de entrar em contato
-        </h2>
-
-        <Accordion type="single" collapsible className="space-y-2">
-          {faqs.map((faq, i) => (
-            <AccordionItem
-              key={i}
-              value={`faq-${i}`}
-              className="rounded-[10px] border border-[#E5E7EB] bg-white px-5 data-[state=open]:border-[#1E88E5]/30"
-            >
-              <AccordionTrigger className="text-sm font-medium text-[#0A0F1E] text-left hover:no-underline py-4">
-                {faq.q}
-              </AccordionTrigger>
-              <AccordionContent className="text-sm text-[#525252] leading-relaxed pb-4">
-                {faq.a}
-              </AccordionContent>
-            </AccordionItem>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2.5">
+          {faqs.map((faq) => (
+            <FAQItem key={faq.q} {...faq} />
           ))}
-        </Accordion>
+        </div>
 
-        <div className="mt-10 text-center">
-          <p className="text-sm text-[#525252] mb-3">Não achou sua dúvida?</p>
+        <div className="mt-5 text-center">
+          <p className="text-[13px] text-[#525252] mb-1">Não achou sua dúvida?</p>
           <a
             href={whatsappLink(WA_MSG)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#25D366] hover:text-[#1FB955] transition-colors"
+            className="text-[14px] font-medium text-[#1E88E5] hover:underline"
           >
             Manda WhatsApp →
           </a>

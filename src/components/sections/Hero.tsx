@@ -1,83 +1,132 @@
-import { User } from 'lucide-react'
 import { whatsappLink } from '@/lib/wa'
-import { BoardingPass } from './BoardingPass'
 
-const WA_HERO = 'Olá Dra. Agrislaine, vi o site e preciso de ajuda com um problema no voo.'
+const WA_HERO = 'Olá Dra. Agrislaine, vi o site da Voe sem Problemas e gostaria de uma análise do meu caso.'
+
+const flights = [
+  { code: 'LA 3142', route: 'GRU → REC', time: '18:30', status: 'CANCELADO', type: 'red' },
+  { code: 'G3 5208', route: 'GRU → POA', time: '21:45', status: 'ATRASADO 4h20', type: 'amber' },
+  { code: 'AD 1718', route: 'GRU → SDU', time: '20:15', status: 'ATRASADO 2h10', type: 'amber' },
+  { code: 'LA 8456', route: 'GRU → BSB', time: '19:00', status: 'CANCELADO', type: 'red' },
+  { code: 'G3 9034', route: 'GRU → FOR', time: '22:10', status: 'ATRASADO 3h05', type: 'amber' },
+]
 
 export function Hero() {
   return (
-    <section className="py-16 md:py-24 px-4 sm:px-6">
+    <section className="px-4 sm:px-10 pt-14 pb-7">
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-9 items-center">
 
-          {/* Left: content (60%) */}
-          <div className="lg:col-span-3 flex flex-col gap-6">
-            {/* OAB eyebrow */}
-            <div>
-              <span className="inline-block rounded-full bg-[#E6F1FB] px-3 py-1 text-xs font-medium text-[#0C447C]">
-                Advocacia especializada · OAB/SC 53.583 · OAB/SP 505.951
-              </span>
-            </div>
+          {/* LEFT — copy */}
+          <div className="flex flex-col">
+            {/* Slogan placeholder */}
+            <span className="inline-block self-start mb-3.5 rounded-[6px] border border-dashed border-[#B5D4F4] bg-[#FAFAFA] px-3 py-1.5 text-[12px] text-[#525252]">
+              [ slogan da Dra. Agrislaine aqui ]
+            </span>
 
-            {/* H1 editorial */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium text-[#0A0F1E] leading-[1.08] tracking-[-0.02em]">
-              O voo atrasou.{' '}
-              <br className="hidden sm:block" />
-              A justiça{' '}
-              <em className="not-italic text-[#1E88E5]">não precisa.</em>
+            {/* H1 */}
+            <h1 className="text-[40px] sm:text-[44px] font-medium text-[#0A0F1E] leading-[1.04] tracking-[-0.035em] mb-4">
+              Quando a companhia falha,
+              <br />
+              <span className="text-[#1E88E5]">a justiça compensa.</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-lg text-[#525252] leading-relaxed max-w-lg">
-              Atraso, cancelamento, extravio ou overbooking. Análise gratuita em 24h.{' '}
-              <strong className="font-medium text-[#0A0F1E]">
-                Você só paga se a gente ganhar.
-              </strong>
+            <p className="text-base text-[#525252] leading-[1.55] mb-7 max-w-[480px]">
+              Atraso, cancelamento, bagagem extraviada ou preterição de embarque. Análise gratuita
+              em 24h pelo WhatsApp. Honorários apenas sobre o êxito.
             </p>
 
-            {/* Primary CTA */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <a
-                href={whatsappLink(WA_HERO)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 rounded-[12px] bg-[#25D366] px-7 h-14 text-base font-medium text-white hover:bg-[#1FB955] transition-colors shadow-sm"
-              >
-                <WhatsAppIcon />
-                Falar com a Dra. agora
-              </a>
-              <a
-                href="#caso"
-                className="inline-flex items-center justify-center rounded-[12px] bg-[#F0F4F8] px-7 h-14 text-base font-medium text-[#0A0F1E] hover:bg-[#E2E8F0] transition-colors"
-              >
-                Embarcar meu caso
-              </a>
-            </div>
-
-            {/* Trust micro-copy */}
-            <p className="text-xs text-[#525252]">
-              Análise gratuita · Sem custo inicial · 100% online · Atuação em todo Brasil
-            </p>
-
-            {/* Boarding pass (mobile: below CTA) */}
-            <div className="lg:hidden pt-2">
-              <BoardingPass />
-            </div>
+            {/* Single primary CTA */}
+            <a
+              href={whatsappLink(WA_HERO)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex self-start items-center gap-2.5 rounded-[14px] bg-[#25D366] px-6 py-4 text-[15px] font-medium text-white hover:bg-[#1FB955] hover:scale-[1.02] transition-all duration-200"
+            >
+              <WhatsAppIcon />
+              Falar com a Dra. agora
+            </a>
           </div>
 
-          {/* Right: photo placeholder + boarding pass (desktop 40%) */}
-          <div className="hidden lg:flex lg:col-span-2 flex-col gap-6 items-center">
-            {/* Photo placeholder */}
-            <div className="relative w-full max-w-xs aspect-[3/4] rounded-[20px] overflow-hidden bg-gradient-to-b from-[#0F1E33] to-[#1E88E5] flex flex-col items-center justify-center">
-              <User size={80} className="text-white/30" />
-              <div className="absolute bottom-0 left-0 right-0 bg-[#0F1E33]/80 backdrop-blur-sm px-4 py-3">
-                <p className="text-[10px] font-mono tracking-widest text-[#B5D4F4] uppercase text-center">
-                  Dra. Agrislaine Oliveira · OAB/SC e OAB/SP
-                </p>
+          {/* RIGHT — visual */}
+          <div className="flex flex-col gap-3">
+            {/* Departures panel */}
+            <div
+              className="rounded-[12px] px-[18px] py-4"
+              style={{
+                background: '#0A0F1E',
+                boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.04)',
+              }}
+            >
+              {/* Panel header */}
+              <div className="flex justify-between items-center pb-2.5 border-b border-[rgba(181,212,244,0.15)] mb-3">
+                <span className="font-mono text-[10px] text-[#B5D4F4] tracking-[0.15em]">
+                  DEPARTURES · GRU
+                </span>
+                <span className="font-mono text-[10px] text-[#FBBF24] tracking-[0.1em]">
+                  ★ AO VIVO
+                </span>
               </div>
+
+              {/* Flight rows */}
+              <div className="flex flex-col gap-1.5">
+                {flights.map((f) => (
+                  <div
+                    key={f.code}
+                    className="grid gap-2 font-mono text-[11px] items-center"
+                    style={{ gridTemplateColumns: '1fr 1.2fr 0.7fr 1fr' }}
+                  >
+                    <span className="text-white">{f.code}</span>
+                    <span className="text-[#B5D4F4]">{f.route}</span>
+                    <span className="text-[#B5D4F4]">{f.time}</span>
+                    <span
+                      className="font-medium"
+                      style={{ color: f.type === 'red' ? '#FF6B6B' : '#FBBF24' }}
+                    >
+                      {f.status}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Disclaimer */}
+              <p className="mt-2 font-mono text-[8px] text-[#525252] italic">
+                Painel ilustrativo. Códigos IATA reais (LA=LATAM, G3=GOL, AD=Azul). Voos fictícios.
+              </p>
             </div>
 
-            <BoardingPass />
+            {/* Boarding pass — êxito recente */}
+            {/* TODO: substituir por caso real fornecido pela Dra. */}
+            <div
+              className="rounded-[12px] px-[18px] py-3.5"
+              style={{
+                background: '#FFFFFF',
+                boxShadow: '0 1px 2px rgba(10,15,30,0.06), 0 0 0 0.5px #E5E7EB',
+              }}
+            >
+              <div className="flex justify-between items-center pb-2 border-b border-dashed border-[#D1D5DB] mb-2">
+                <span className="font-mono text-[10px] text-[#525252] tracking-[0.1em]">
+                  ★ ÊXITO RECENTE
+                </span>
+                <span className="font-mono text-[10px] text-[#525252]">Nº 247</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-[14px] font-medium text-[#0A0F1E] leading-[1.2]">
+                    Voo atrasado 6h47
+                  </p>
+                  <p className="font-mono text-[11px] text-[#525252] mt-0.5">
+                    GIG → POA · LATAM
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="font-mono text-[22px] font-medium text-[#1E88E5] tracking-[-0.02em]">
+                    R$ 8.547
+                  </p>
+                  <p className="text-[10px] text-[#525252]">conquistados</p>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>

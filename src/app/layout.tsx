@@ -55,10 +55,12 @@ const schemaOrg = {
     {
       '@type': 'FAQPage',
       mainEntity: [
-        { '@type': 'Question', name: 'Até quando posso entrar com uma ação?', acceptedAnswer: { '@type': 'Answer', text: 'Para voos domésticos, o prazo é de 5 anos. Para voos internacionais, 2 anos.' } },
-        { '@type': 'Question', name: 'Como funciona o pagamento de honorários?', acceptedAnswer: { '@type': 'Answer', text: '30% sobre o valor obtido, somente se ganharmos. Zero custo inicial.' } },
-        { '@type': 'Question', name: 'Vocês atendem em qual região?', acceptedAnswer: { '@type': 'Answer', text: 'Brasil inteiro, 100% online.' } },
-        { '@type': 'Question', name: 'Quanto tempo demora para receber?', acceptedAnswer: { '@type': 'Answer', text: 'Em média 6 a 18 meses, dependendo da comarca.' } },
+        { '@type': 'Question', name: 'Até quando posso entrar com uma ação?', acceptedAnswer: { '@type': 'Answer', text: 'Para voos internacionais o prazo é de 2 anos. Para voos domésticos, 5 anos. Conta a partir da data do voo.' } },
+        { '@type': 'Question', name: 'Como são calculados os honorários?', acceptedAnswer: { '@type': 'Answer', text: '30% sobre o valor obtido, somente se ganharmos. Zero custo inicial. Se a ação for indeferida, você não paga nada.' } },
+        { '@type': 'Question', name: 'Quanto tempo até receber?', acceptedAnswer: { '@type': 'Answer', text: 'Tipicamente entre 6 e 18 meses, dependendo da comarca e da agilidade do trâmite. Em alguns casos, com acordo extrajudicial, pode ser mais rápido.' } },
+        { '@type': 'Question', name: 'Vocês atendem em qual região?', acceptedAnswer: { '@type': 'Answer', text: 'Brasil inteiro, 100% online. A Dra. Agrislaine tem registro na OAB/SC e OAB/SP, atuando em qualquer jurisdição do país via certificação digital.' } },
+        { '@type': 'Question', name: 'Quais documentos vou precisar?', acceptedAnswer: { '@type': 'Answer', text: 'Cartão de embarque, comprovante da passagem, comprovantes da companhia sobre o atraso/cancelamento, recibos de gastos extras. Te enviamos a lista completa após análise do caso.' } },
+        { '@type': 'Question', name: 'E se meu pedido for negado?', acceptedAnswer: { '@type': 'Answer', text: 'Você não paga nossos honorários. Pode haver, em casos específicos, condenação a honorários de sucumbência, mas isso é raro e te avisamos antes.' } },
       ],
     },
   ],
