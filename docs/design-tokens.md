@@ -1,68 +1,78 @@
-# Design Tokens — Direção B (Tech Boutique Moderno)
+# Design Tokens — Voe sem Problemas (Marca Real)
 
 Projeto: Voe sem Problemas  
-Visual direction: B — Tech Boutique Moderno  
-Updated: 2026-05-27
+Atualizado: 2026-05-27 (VSP-S1-004 — alinhamento com identidade de marca)
 
 ---
 
 ## Paleta de Cores
 
-| Token            | Hex      | Uso                                      |
-|------------------|----------|------------------------------------------|
-| `bg-canvas`      | #FAFAF8  | Background principal (off-white quente)  |
-| `bg-elevated`    | #FFFFFF  | Cards, modais, superfícies elevadas      |
-| `text-strong`    | #0A0A0A  | Títulos, texto principal                 |
-| `text-muted`     | #525252  | Subtítulos, descrições                   |
-| `accent`         | #0F5132  | Verde-floresta — êxito, confiança, links |
-| `accent-hover`   | #0D4429  | Hover do accent                          |
-| `cta`            | #FF6B6B  | Coral — CTAs de urgência, botão primário |
-| `cta-hover`      | #E85D5D  | Hover do CTA                             |
-| `border`         | #E5E5E5  | Divisores, bordas sutis                  |
-| `success`        | #16A34A  | Mensagens de sucesso                     |
-| `warning`        | #F59E0B  | Alertas                                  |
-| `error`          | #DC2626  | Erros, validação                         |
+### Backgrounds
+
+| Token               | Hex     | Uso                                   |
+|---------------------|---------|---------------------------------------|
+| `bg-canvas`         | #FAFAFA | Background principal (branco suave)   |
+| `bg-elevated`       | #FFFFFF | Cards, modais, superfícies elevadas   |
+| `bg-surface-dark`   | #0F1E33 | Footer, hero alternativo, sections dark |
+
+### Texto
+
+| Token                  | Hex     | Uso                                     |
+|------------------------|---------|------------------------------------------|
+| `text-strong`          | #0A0F1E | Títulos, texto principal (tom azulado)   |
+| `text-muted`           | #525252 | Subtítulos, descrições                   |
+| `text-on-dark`         | #FFFFFF | Texto sobre surface dark                 |
+| `text-on-dark-muted`   | #B5D4F4 | Texto secundário sobre surface dark      |
+
+### Brand
+
+| Token                  | Hex     | Uso                                      |
+|------------------------|---------|------------------------------------------|
+| `brand-primary`        | #1E88E5 | Azul cobalto — botões, links, accent     |
+| `brand-primary-hover`  | #1976D2 | Hover do azul                            |
+| `brand-primary-dark`   | #1565C0 | Gradiente / profundidade do logo         |
+| `brand-navy`           | #0F1E33 | Alias semântico de surface-dark          |
+
+### CTAs
+
+| Token                  | Hex     | Uso                                      |
+|------------------------|---------|------------------------------------------|
+| `whatsapp`             | #25D366 | Verde oficial WhatsApp — CTA primário    |
+| `whatsapp-hover`       | #1FB955 | Hover do CTA WhatsApp                    |
+| `accent-warm`          | #FBBF24 | Amber — alerts e badges de urgência      |
+| `accent-warm-hover`    | #F59E0B | Hover do amber                           |
+
+### Sistema
+
+| Token           | Hex     | Uso               |
+|-----------------|---------|-------------------|
+| `border`        | #E5E7EB | Divisores sutis   |
+| `border-strong` | #D1D5DB | Bordas com ênfase |
+| `success`       | #16A34A | Mensagens ok      |
+| `warning`       | #F59E0B | Alertas           |
+| `error`         | #DC2626 | Erros             |
 
 ---
 
 ## Tipografia
 
-| Token           | Valor                                                                          |
-|-----------------|--------------------------------------------------------------------------------|
-| `font-sans`     | 'Geist', system-ui, -apple-system, BlinkMacSystemFont, sans-serif              |
-| `font-mono`     | 'Geist Mono', ui-monospace, monospace                                          |
-| `font-display`  | 'Geist', sans-serif (com font-feature-settings: "ss01", "cv11")                |
-
-Fonte carregada via `next/font/google` (Geist + Geist Mono) em `app/layout.tsx`.
-
----
-
-## Escala de Espaçamento
-
-Padrão Tailwind (base 4px):
-- `spacing-1` = 4px, `spacing-2` = 8px, `spacing-4` = 16px, `spacing-8` = 32px, etc.
+| Token         | Valor                                                                |
+|---------------|----------------------------------------------------------------------|
+| `font-sans`   | 'Geist', system-ui, -apple-system, BlinkMacSystemFont, sans-serif   |
+| `font-mono`   | 'Geist Mono', ui-monospace, monospace                               |
+| `font-display`| 'Geist', sans-serif (com font-feature-settings: "ss01", "cv11")     |
 
 ---
 
 ## Border Radius
 
-| Token  | Valor |
-|--------|-------|
-| `sm`   | 6px   |
-| `md`   | 10px  |
-| `lg`   | 14px  |
-| `xl`   | 20px  |
-| `2xl`  | 28px  |
-
----
-
-## Sombras
-
-Estilo shadcn/ui — sutis, sem drop-shadow exagerado:
-- `shadow-sm`: `0 1px 2px 0 rgb(0 0 0 / 0.05)`
-- `shadow`: `0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)`
-- `shadow-md`: `0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)`
-- `shadow-lg`: `0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08)`
+| Token | Valor |
+|-------|-------|
+| `sm`  | 6px   |
+| `md`  | 10px  |
+| `lg`  | 14px  |
+| `xl`  | 20px  |
+| `2xl` | 28px  |
 
 ---
 
@@ -74,13 +84,12 @@ Estilo shadcn/ui — sutis, sem drop-shadow exagerado:
 | default   | 250ms    | cubic-bezier(0.16, 1, 0.3, 1)       |
 | large     | 400ms    | cubic-bezier(0.16, 1, 0.3, 1)       |
 
-Curva "suave, premium" — easing consistente em todas as durações.
-
 ---
 
-## Decisões de Design
+## Decisões
 
-- **Por que verde-floresta (#0F5132)?** Transmite autoridade jurídica, confiança, êxito — alinhado ao posicionamento da Dra. Agrislaine Oliveira.
-- **Por que coral (#FF6B6B) nos CTAs?** Urgência sem agressividade. Contraste forte sobre o fundo off-white.
-- **Off-white (#FAFAF8) vs branco puro:** Reduz fadiga ocular em leitura longa de conteúdo jurídico.
-- **Geist:** Fonte moderna, legível, usada pelo Vercel. Carregamento zero-FOUT via next/font.
+- **Azul cobalto (#1E88E5):** cor central da marca existente (logo, Instagram). Transmite tecnologia, confiança e modernidade — ideal para advocacia digital.
+- **Navy (#0F1E33):** profundidade e seriedade jurídica sem ser austero.
+- **WhatsApp verde (#25D366) como CTA primário:** convenção do segmento jurídico BR — elimina fricção no primeiro contato.
+- **Amber (#FBBF24):** alert color para urgência sem agressividade (melhor que vermelho para avisos de prazo).
+- **Geist:** fonte moderna, zero-FOUT via next/font, leitura excelente em displays e mobile.

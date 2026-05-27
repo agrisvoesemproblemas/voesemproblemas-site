@@ -6,16 +6,32 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-display: var(--font-geist-sans), sans-serif;
 
-  /* Colors — Direção B (Tech Boutique Moderno) */
-  --color-bg-canvas: #FAFAF8;
+  /* Background */
+  --color-bg-canvas: #FAFAFA;
   --color-bg-elevated: #FFFFFF;
-  --color-text-strong: #0A0A0A;
+  --color-bg-surface-dark: #0F1E33;
+
+  /* Text */
+  --color-text-strong: #0A0F1E;
   --color-text-muted: #525252;
-  --color-accent: #0F5132;
-  --color-accent-hover: #0D4429;
-  --color-cta: #FF6B6B;
-  --color-cta-hover: #E85D5D;
-  --color-border: #E5E5E5;
+  --color-text-on-dark: #FFFFFF;
+  --color-text-on-dark-muted: #B5D4F4;
+
+  /* Brand */
+  --color-brand-primary: #1E88E5;
+  --color-brand-primary-hover: #1976D2;
+  --color-brand-primary-dark: #1565C0;
+  --color-brand-navy: #0F1E33;
+
+  /* CTAs */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1FB955;
+  --color-accent-warm: #FBBF24;
+  --color-accent-warm-hover: #F59E0B;
+
+  /* System */
+  --color-border: #E5E7EB;
+  --color-border-strong: #D1D5DB;
   --color-success: #16A34A;
   --color-warning: #F59E0B;
   --color-error: #DC2626;
@@ -34,31 +50,31 @@
   --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* shadcn/ui CSS variables (overridden with Direção B palette) */
+/* shadcn/ui CSS variables — brand-aligned */
 :root {
   --background: 0 0% 98%;
-  --foreground: 0 0% 4%;
+  --foreground: 220 56% 8%;
   --card: 0 0% 100%;
-  --card-foreground: 0 0% 4%;
+  --card-foreground: 220 56% 8%;
   --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 4%;
-  --primary: 152 80% 19%;
-  --primary-foreground: 0 0% 98%;
+  --popover-foreground: 220 56% 8%;
+  --primary: 207 78% 51%;
+  --primary-foreground: 0 0% 100%;
   --secondary: 0 0% 96%;
-  --secondary-foreground: 0 0% 9%;
+  --secondary-foreground: 220 56% 8%;
   --muted: 0 0% 96%;
   --muted-foreground: 0 0% 32%;
-  --accent: 152 80% 19%;
-  --accent-foreground: 0 0% 98%;
+  --accent: 207 78% 51%;
+  --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 51%;
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 152 80% 19%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 207 78% 51%;
   --radius: 10px;
 }
 
 body {
-  background-color: #FAFAF8;
-  color: #0A0A0A;
+  background-color: #FAFAFA;
+  color: #0A0F1E;
   font-feature-settings: "ss01", "cv11";
 }

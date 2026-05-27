@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Voe sem Problemas — Advocacia de Passageiro Aéreo',
+  title: 'Voe sem Problemas — Advocacia especializada em direitos do passageiro aéreo',
   description:
-    'Direitos do passageiro aéreo explicados de forma simples. Dra. Agrislaine Oliveira — advocacia especializada.',
+    'Atraso, cancelamento, extravio de bagagem ou overbooking? Análise gratuita em 24h. Você só paga se a gente ganhar. Dra. Agrislaine Oliveira — OAB/SC e OAB/SP. Atuação em todo Brasil.',
 }
 
 export default function RootLayout({
