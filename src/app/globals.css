@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Typography */
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-geist-sans), sans-serif;
+
+  /* Colors — Direção B (Tech Boutique Moderno) */
+  --color-bg-canvas: #FAFAF8;
+  --color-bg-elevated: #FFFFFF;
+  --color-text-strong: #0A0A0A;
+  --color-text-muted: #525252;
+  --color-accent: #0F5132;
+  --color-accent-hover: #0D4429;
+  --color-cta: #FF6B6B;
+  --color-cta-hover: #E85D5D;
+  --color-border: #E5E5E5;
+  --color-success: #16A34A;
+  --color-warning: #F59E0B;
+  --color-error: #DC2626;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+
+  /* Motion */
+  --duration-micro: 150ms;
+  --duration-default: 250ms;
+  --duration-large: 400ms;
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* shadcn/ui CSS variables (overridden with Direção B palette) */
+:root {
+  --background: 0 0% 98%;
+  --foreground: 0 0% 4%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 4%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 4%;
+  --primary: 152 80% 19%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 9%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 32%;
+  --accent: 152 80% 19%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 72% 51%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 152 80% 19%;
+  --radius: 10px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAFAF8;
+  color: #0A0A0A;
+  font-feature-settings: "ss01", "cv11";
 }
